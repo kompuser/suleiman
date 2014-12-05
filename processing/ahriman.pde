@@ -6,14 +6,15 @@ void setup()
   background(0,0);
   f = createFont("courier", 32, true);
   textFont(f, 32); 
-  stroke(255, 255, 255, 125);
-  z = 10;
+  fill(255);
+  stroke(255, 255, 255);
+  z = 40;
   l = z/2 + z/sqrt(2);
   radius = 0;
   tick = 0;
   odd = true;
-  r = 2;
-  j = 2;
+  r = 10;
+  j = 0;
 }
 
 
@@ -43,10 +44,11 @@ void createSquare(x, y) {
   
   
   // coordinates of ray intersections 
-  ipoints = [];
   i = 0;
+  ipoints = [];
   for (angle = PI/4; angle < TWO_PI; angle += PI/2) {
     ipoints[i] = new PVector(centre.x + cos(angle)*r, centre.y - sin(angle)*r);
+    //ellipse(ipoints[i].x, ipoints[i].y, 2, 2);
     i++;
   }
   
@@ -107,7 +109,6 @@ void createOctagon(x, y) {
   
 
   // coordinates of ray intersections 
-  //d = abs(mouseX - centre.x);
   f = l / (k/2);
   i = 0;
   ipoints = [];
@@ -155,8 +156,8 @@ void createGrid() {
 }
 
 void draw() {
-  j += 0.01;
-  r = sin(j)*(z/2) + 2*PI;
+  //j += 0.01;
+  //r = sin(j)*z;
   background(0,0);
   createGrid();
   //createPolygon(width/2, height/2);
